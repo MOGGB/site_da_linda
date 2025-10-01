@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site da Linda 💖</title>
+<style>
+    body {
+        font-family: 'Comic Sans MS', Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background: url('https://imgs.search.brave.com/mB_DiMz_8LBbif-YMVCCH_u9_pQhzCNgdQOT1RmrlTM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA5LzQ5Lzc2Lzk1/LzM2MF9GXzk0OTc2/OTU0NV9lYTRPSlJH/bE9iMnM4aUlmclRu/d1h2bTBNQVI2UWlk/Mi5qcGc') no-repeat center top;
+        background-size: cover;
+        color: #333;
+        overflow-x: hidden;
+    }
+
+    /* neve animada */
+    .snowflake {
+        position: fixed;
+        top: -10px;
+        color: white;
+        font-size: 1em;
+        user-select: none;
+        pointer-events: none;
+        z-index: 9999;
+        animation-name: fall;
+        animation-duration: 10s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+
+    @keyframes fall {
+        0% { transform: translateY(0) translateX(0); opacity: 1; }
+        100% { transform: translateY(100vh) translateX(50px); opacity: 0; }
+    }
+
+    header {
+        text-align: center;
+        background: rgba(255, 192, 203, 0.8);
+        padding: 20px;
+    }
+    header h1 {
+        color: #ff1493;
+        margin: 0;
+    }
+
+    nav {
+        display: flex;
+        justify-content: center;
+        background: rgba(255, 182, 193, 0.9);
+        padding: 10px 0;
+        flex-wrap: wrap;
+    }
+    nav button {
+        background: #ff69b4;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 16px;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: transform 0.2s, background 0.2s;
+    }
+    nav button:hover {
+        transform: scale(1.1);
+        background: #ff1493;
+    }
+
+    .container {
+        padding: 20px;
+        max-width: 600px;
+        margin: 20px auto;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+
+    input, select {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border-radius: 10px;
+        border: 2px solid #ff69b4;
+        font-size: 16px;
+    }
+
+    button.calc, .musica-button {
+        background: #ff1493;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 15px;
+        cursor: pointer;
+        margin-top: 10px;
+        transition: transform 0.2s, background 0.2s;
+    }
+
+    button.calc:hover, .musica-button:hover {
+        background: #ff69b4;
+        transform: scale(1.05);
+    }
+
+    #resultado {
+        margin-top: 20px;
+        font-size: 20px;
+        color: #ff1493;
+    }
+
+    .tab {
+        display: none;
+    }
+
+    img.decoracao {
+        max-width: 100%;
+        margin-top: 15px;
+        border-radius: 15px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Oi Lindaaaa 💖</h1>
+    <h2>Bem vinda ao seu site, todo seu hehe!</h2>
+</header>
+
+<nav>
+    <button onclick="mostrarAba('estatistica')">ESTATÍSTICA</button>
+    <button onclick="mostrarAba('voce')">O QUE VOCÊ É PRA MIM</button>
+    <button onclick="mostrarAba('musicas')">MÚSICAS 💿</button>
+</nav>
+
+<div class="container">
+
+    <div id="estatistica" class="tab">
+        <h2>Escolha o cálculo que deseja fazer!!!</h2>
+        <h3>Aqui é pra quando você estiver com preguicinha de calcular hehe🤭😚</h3>
+        <select id="calculo">
+            <option value="media">Média</option>
+            <option value="mediana">Mediana</option>
+            <option value="moda">Moda</option>
+        </select>
+        <br>
+        <input type="text" id="numeros" placeholder="maravilhosa, digita os números separados por vírgula">
+        <br>
+        <button class="calc" onclick="calcular()">Calcular</button>
+        <div id="resultado"></div>
+        <img class="decoracao" src="https://media3.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3M2V2bms4M2d1OGZ1ZGJ4YjlkMjJrcm13amx2bnd3NHRzcTJ1cml1OSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MDJ9IbxxvDUQM/200.webp" alt="gatinhos fofos">
+    </div>
+
+    <div id="voce" class="tab">
+        <h2>O que você é pra mim 💕</h2>
+        <h3>Você é a pessoa mais especial do mundo!!! Desde o primeiro momento em que te vi... me apaixonei completamente... e a cada conversa, cada risada gostosa, cada troca de olhares, eu me apaixonava cada vez mais por você!!! Você é inteiramente INCRÍVEL💖</h3>
+        <img class="decoracao" src="https://media1.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZjM4NmN5NmtoM2drNzZ4bzI3dDUyMjBheWhiMnFuOWd6b2p4N3o5cCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/SCovFVJYLM4ghVlzUj/giphy.webp" alt="fofura">
+    </div>
+
+    <div id="musicas" class="tab">
+        <h2>Músicas que você gosta 🎵</h2>
+        <p>Escolhe uma dessas 💖</p>
+        <audio id="player" controls loop>
+            <source id="source" src="musicas/dreams.mp3" type="audio/mpeg">
+            seu navegador não suporta áudio
+        </audio>
+        <br>
+        <button class="musica-button" onclick="trocarMusica('musicas/dreams.mp3')">Dreams</button>
+        <button class="musica-button" onclick="trocarMusica('musicas/goYourOwnWay.mp3')">Go Your Own Way</button>
+        <button class="musica-button" onclick="trocarMusica('musicas/littleLies.mp3')">Little Lies</button>
+    </div>
+
+</div>
+
+<script>
+function mostrarAba(nome) {
+    const abas = document.querySelectorAll('.tab');
+    abas.forEach(tab => tab.style.display = 'none');
+    document.getElementById(nome).style.display = 'block';
+}
+
+// mostrar a aba estatística por padrão
+mostrarAba('estatistica');
+
+function calcular() {
+    const escolha = document.getElementById('calculo').value;
+    const input = document.getElementById('numeros').value;
+    const numeros = input.split(',').map(x => parseFloat(x.trim())).filter(x => !isNaN(x));
+
+    if(numeros.length === 0) {
+        alert("digite pelo menos um número válido!");
+        return;
+    }
+
+    let resultado;
+    if(escolha === 'media') {
+        const soma = numeros.reduce((a,b) => a+b, 0);
+        resultado = soma / numeros.length;
+        resultado = "a média dos números é: " + resultado.toFixed(2);
+    } else if(escolha === 'mediana') {
+        numeros.sort((a,b) => a-b);
+        const meio = Math.floor(numeros.length/2);
+        if(numeros.length % 2 === 1) {
+            resultado = numeros[meio];
+        } else {
+            resultado = (numeros[meio-1] + numeros[meio])/2;
+        }
+        resultado = "a mediana é: " + resultado.toFixed(2);
+    } else if(escolha === 'moda') {
+        let freqMap = {};
+        let maxFreq = 0;
+        let moda = numeros[0];
+        numeros.forEach(num => {
+            freqMap[num] = (freqMap[num] || 0) + 1;
+            if(freqMap[num] > maxFreq) {
+                maxFreq = freqMap[num];
+                moda = num;
+            }
+        });
+        resultado = "a moda dos números é: " + moda.toFixed(2);
+    }
+
+    document.getElementById('resultado').innerText = resultado;
+}
+
+function trocarMusica(arquivo) {
+    const player = document.getElementById('player');
+    const source = document.getElementById('source');
+    source.src = arquivo;
+    player.load();
+    player.play();
+}
+
+function criarNeve() {
+    const numFlocos = 50;
+    for(let i=0;i<numFlocos;i++){
+        const floco = document.createElement('div');
+        floco.className = 'snowflake';
+        floco.style.left = Math.random() * window.innerWidth + 'px';
+        floco.style.fontSize = (Math.random()*10 + 10) + 'px';
+        floco.style.animationDuration = (Math.random()*5 + 5) + 's';
+        floco.innerHTML = '❤';
+        document.body.appendChild(floco);
+    }
+}
+
+criarNeve();
+</script>
+
+</body>
+</html>
